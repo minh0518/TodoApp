@@ -1,10 +1,10 @@
 import React from 'react';
+import TodoTemplate from './components/TodoTemplate';
+
 
 const App=()=>{
   return(
-    <div>
-      Let's make Todo App!
-    </div>
+    <TodoTemplate>Let's make Todo App!</TodoTemplate>
   )
 }
 
