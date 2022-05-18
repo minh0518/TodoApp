@@ -2,12 +2,13 @@ import React from 'react';
 import TodoListItem from './TodoListItem';
 import './TodoList.scss';
 
-const TodoList = ({ todos, onRemove, onToggle }) => {
+								//props를 받아서 사용
+const TodoList = ({todos}) => {
   return (
     <div className="TodoList">
-        <TodoListItem/>
-        <TodoListItem/>
-        <TodoListItem/>
+        {todos.map(todo=>(
+          <TodoListItem todo={todo} key={todo.id}/>
+        ))}
     </div>
   );
 };
