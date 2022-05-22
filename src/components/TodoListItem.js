@@ -7,18 +7,18 @@ import {
 import cn from 'classnames'
 import './TodoListItem.scss';
 
-const TodoListItem = ({todo}) => {
+const TodoListItem = ({todo,onRemove,onToggle}) => {
   
-  const {text,checked}=todo //객체 구조분해할당으로 객체의 값들을 받음
+  const {id,text,checked}=todo
 
 
   return (
     <div className="TodoListItem">
-      <div className={cn('checkbox',{checked})}>
+      <div className={cn('checkbox',{checked})} onClick={()=>onToggle(id)}>
         {checked?<MdCheckBox/>:<MdCheckBoxOutlineBlank/>}
         <div className="text">{text}</div>
       </div>
-      <div className="remove">
+      <div className="remove" onClick={()=>onRemove(id)}>
         <MdRemoveCircleOutline />
       </div>
     </div>

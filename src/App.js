@@ -40,10 +40,28 @@ const App=()=>{
     },[todos],
   )
 
+  const onRemove=useCallback(
+    id=>{
+      setTodos(todos.filter(item=>{
+        return item.id!==id
+      }))
+    },[todos]
+  )
+
+  const onToggle=useCallback(
+    id=>{
+      setTodos(
+        todos.map(item=>{
+          return item.id===id ? {...item,checked:!item.checked} : item
+        }),
+      )
+    },[todos]
+  )
+
   return(
     <TodoTemplate>
       <TodoInsert onInsert={onInsert}/>
-			<TodoList todos={todos}/> 
+			<TodoList todos={todos} onRemove={onRemove} onToggle={onToggle}/> 
     </TodoTemplate> 
   )
 }
